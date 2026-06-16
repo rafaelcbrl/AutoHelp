@@ -1,1 +1,20 @@
+flowchart LR
 
+    Cliente[Cliente]
+    Prestador[Prestador]
+
+    AutoHelp[AutoHelp\nSistema de Assistência Veicular]
+
+    Supabase[(Supabase)]
+    Gemini[Google Gemini API]
+    GPS[Geolocalização do Navegador]
+
+    Cliente -->|Solicita serviços,\nchat, IA| AutoHelp
+
+    Prestador -->|Aceita atendimentos,\nchat, localização| AutoHelp
+
+    AutoHelp -->|Armazena usuários,\nsolicitações e mensagens| Supabase
+
+    AutoHelp -->|Consultas de IA| Gemini
+
+    AutoHelp -->|Obtém localização| GPS
