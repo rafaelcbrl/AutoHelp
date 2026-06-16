@@ -1,1 +1,23 @@
+flowchart TB
 
+    Usuario[Cliente e Prestador]
+
+    Frontend[Frontend Web\nHTML CSS JavaScript\nGitHub Pages]
+
+    Backend[Backend API\nNode.js + Express\nRender]
+
+    Banco[(Supabase\nPostgreSQL)]
+
+    Gemini[Google Gemini API]
+
+    GPS[Geolocalização\nBrowser API]
+
+    Usuario --> Frontend
+
+    Frontend --> Backend
+
+    Frontend --> GPS
+
+    Backend --> Banco
+
+    Backend --> Gemini
