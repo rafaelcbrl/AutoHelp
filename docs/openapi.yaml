@@ -1,0 +1,185 @@
+openapi: 3.0.3
+
+info:
+  title: AutoHelp API
+  description: API do sistema AutoHelp - Assistência Veicular Inteligente
+  version: 1.0.0
+
+servers:
+  - url: https://SEU-BACKEND-RENDER.onrender.com
+
+paths:
+
+  /cadastro:
+    post:
+      summary: Cadastrar usuário
+      requestBody:
+        required: true
+      responses:
+        "201":
+          description: Usuário cadastrado
+
+  /login:
+    post:
+      summary: Login de usuário
+      requestBody:
+        required: true
+      responses:
+        "200":
+          description: Login realizado
+
+  /usuarios:
+    get:
+      summary: Listar usuários
+      responses:
+        "200":
+          description: Lista de usuários
+
+  /perfil/{id}:
+    get:
+      summary: Buscar perfil
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Perfil encontrado
+
+    put:
+      summary: Atualizar perfil
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Perfil atualizado
+
+  /solicitacoes:
+    post:
+      summary: Criar solicitação
+      responses:
+        "201":
+          description: Solicitação criada
+
+    get:
+      summary: Listar solicitações
+      responses:
+        "200":
+          description: Lista de solicitações
+
+  /solicitacoes-disponiveis:
+    get:
+      summary: Listar solicitações disponíveis
+      responses:
+        "200":
+          description: Solicitações disponíveis
+
+  /solicitacoes/servico/{servico}:
+    get:
+      summary: Buscar solicitações por serviço
+      parameters:
+        - name: servico
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Solicitações encontradas
+
+  /solicitacoes/{id}/aceitar:
+    put:
+      summary: Aceitar solicitação
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Solicitação aceita
+
+  /solicitacoes/{id}/mensagens:
+    get:
+      summary: Listar mensagens
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Mensagens encontradas
+
+    post:
+      summary: Enviar mensagem
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "201":
+          description: Mensagem enviada
+
+  /solicitacoes/{id}/finalizar:
+    put:
+      summary: Finalizar atendimento
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Atendimento finalizado
+
+  /solicitacoes/{id}/avaliar:
+    put:
+      summary: Avaliar usuário
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Avaliação registrada
+
+  /ia/perguntar:
+    post:
+      summary: Consultar IA Automotiva
+      responses:
+        "200":
+          description: Resposta gerada pela IA
+
+  /ia/historico:
+    post:
+      summary: Salvar histórico da IA
+      responses:
+        "201":
+          description: Histórico salvo
+
+  /ia/historico/{usuarioId}:
+    get:
+      summary: Buscar histórico da IA
+      parameters:
+        - name: usuarioId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Histórico encontrado
