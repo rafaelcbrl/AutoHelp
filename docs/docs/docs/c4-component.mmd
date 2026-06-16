@@ -1,1 +1,46 @@
+flowchart TB
 
+    Frontend[Frontend Web]
+
+    Backend[Backend API\nNode.js + Express]
+
+    Auth[Componente de Autenticação\nCadastro e Login]
+
+    Perfil[Componente de Perfil\nDados do usuário e foto]
+
+    Solicitacoes[Componente de Solicitações\nCriação e listagem de atendimentos]
+
+    Prestador[Componente do Prestador\nAceitar atendimento e disponibilidade]
+
+    Chat[Componente de Chat\nMensagens do atendimento]
+
+    Localizacao[Componente de Geolocalização\nCliente e prestador]
+
+    Avaliacoes[Componente de Avaliações\nNotas e comentários]
+
+    IA[Componente de IA Automotiva\nIntegração Gemini]
+
+    Supabase[(Supabase\nBanco de Dados)]
+
+    Gemini[Google Gemini API]
+
+    Frontend --> Backend
+
+    Backend --> Auth
+    Backend --> Perfil
+    Backend --> Solicitacoes
+    Backend --> Prestador
+    Backend --> Chat
+    Backend --> Localizacao
+    Backend --> Avaliacoes
+    Backend --> IA
+
+    Auth --> Supabase
+    Perfil --> Supabase
+    Solicitacoes --> Supabase
+    Prestador --> Supabase
+    Chat --> Supabase
+    Localizacao --> Supabase
+    Avaliacoes --> Supabase
+    IA --> Supabase
+    IA --> Gemini
